@@ -42,7 +42,7 @@ install:
 
 
 script:
-  - pytest -v --cov=src src/test_suite
+  - pytest -v --cov=const_pH_gromos constph/test_suite
 
 notifications:
     email: false

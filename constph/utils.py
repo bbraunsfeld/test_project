@@ -97,7 +97,7 @@ class create_dataclass_file(object):
 
     def __parser__(self, results):
         file_path = os.getcwd()
-        file_name = '/src/bin/dataclass.py'
+        file_name = '/constph/bin/dataclass.py'
         tmp_path = file_path + file_name
         
         try:
