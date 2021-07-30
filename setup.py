@@ -23,7 +23,7 @@ except:
 
 setup(
     # Self-descriptive entries which should always be present
-    name='const_pH',
+    name='constph',
     author='Benedict Braunsfeld',
     author_email='b.braunsfeld@gmail.com',
     description=short_description[0],

@@ -1,0 +1,20 @@
+name: test
+channels:
+  - conda-forge
+  - omnia/label/dev
+  - omnia
+  - defaults
+dependencies:
+  # Base depends
+  - python
+  - numpy
+  - pyyaml
+  - ipython
+  - jupyter
+  - matplotlib
+  - seaborn
+  - dacite
+    # Testing
+  - pytest
+  - pytest-cov
+  - codecov
