@@ -12,3 +12,8 @@ import sys
 
 import numpy as np
 import pytest
+
+def test_test():
+    """test for pytest in vstudio
+    """
+    assert "test" == "test"
