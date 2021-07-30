@@ -24,16 +24,13 @@ def load_config_yaml(config, input_dir, output_dir):
 
     # set the bin, data and analysis dir
     settingsMap['bin_dir'] = get_bin_dir()
-    print ("stuuuff")
     print (settingsMap['bin_dir'])
     settingsMap['analysis_dir_base'] = os.path.abspath(f"{output_dir}")
     settingsMap['data_dir_base'] = os.path.abspath(f"{input_dir}")
-    system_name = f"{settingsMap['system']['structure1']['name']}-{settingsMap['system']['structure2']['name']}-{settingsMap['simulation']['free_energy_type']}"
+    system_name = f"{settingsMap['system']['structure']['name']}"
     settingsMap['system_dir'] = f"{settingsMap['analysis_dir_base']}/{system_name}"
     settingsMap['cluster_dir'] = f"/data/local/{system_name}"
 
-    settingsMap['system']['structure1']['charmm_gui_dir'] = f"{settingsMap['data_dir_base']}/{settingsMap['system']['structure1']['name']}/"
-    settingsMap['system']['structure2']['charmm_gui_dir'] = f"{settingsMap['data_dir_base']}/{settingsMap['system']['structure2']['name']}/"
     settingsMap['system']['name'] = system_name
 
     return settingsMap
@@ -100,7 +97,7 @@ class create_dataclass_file(object):
 
     def __parser__(self, results):
         file_path = os.getcwd()
-        file_name = '/scripts/dataclass.py'
+        file_name = '/src/bin/dataclass.py'
         tmp_path = file_path + file_name
         
         try:
@@ -111,61 +108,7 @@ class create_dataclass_file(object):
             print(f"Data class could not be created: {file_name}")
             #logger.info(f"Data class could not be created: {file_name}")
             pass
-        
-   
-configuration = load_config_yaml(config='src/bin/dataclass_structure.yaml',
-                                   input_dir='.', output_dir='src/bin/')
 
-configuration = {'input_dataclass': configuration}
-
-create_dataclass_file(configuration)
-
-#def fill_dataclass(input_dataclass,configuration):
-    #filled_class = from_dict(data_class=input_dataclass, data=configuration)
-    #return filled_class
-
-#dataclass
-@dataclass
-class solvation:
-    steps_for_equilibration: int
-@dataclass
-class parameters:
-    nstep: int
-    nstdcd: int
-    nstout: int
-    cons: str
-    dt: float
-@dataclass
-class simulation:
-    parameters: parameters
-    free_energy_type: str
-@dataclass
-class environment:
-    dirname: str
-    psf_file_name: str
-    crd_file_name: str
-    rst_file_name: str
-    simulation_parameter: str
-    intermediate_filename: str
-@dataclass
-class structure:
-    name: str
-    tlc: str
-    vacuum: environment
-    waterbox: environment
-    charmm_gui_dir: str   
-@dataclass
-class system:
-    structure1: structure
-    structure2: structure
-    name: str
-@dataclass
-class input_dataclass:
-    system: system
-    simulation: simulation
-    solvation: solvation
-    bin_dir: str
-    analysis_dir_base: str
-    data_dir_base: str
-    system_dir: str
-    cluster_dir: str
+def fill_dataclass(input_dataclass,configuration):
+    filled_class = from_dict(data_class=input_dataclass, data=configuration)
+    return filled_class

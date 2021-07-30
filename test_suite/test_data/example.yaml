@@ -4,11 +4,11 @@ system:
 ################
   structure:
     name:
-      '2OJ9-test1'
+      'test_system'
     MD:
-      'vacuum'
+      'test_md_path'
     bb:
-      'waterbox'
+      'test_building_block_path'
 
 ################
 search_run:

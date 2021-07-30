@@ -1,5 +1,5 @@
 """
-Unit and regression test for the transformato package.
+Unit and regression test for constant_pH.
 """
 
 import copy
@@ -17,3 +17,7 @@ def test_test():
     """test for pytest in vstudio
     """
     assert "test" == "test"
+
+def test_fill_dataclass():
+    """Fill dataclass with input from the example.yaml in /test_data
+    """
