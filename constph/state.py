@@ -6,8 +6,7 @@ from io import StringIO
 
 import constph
 
-from .utils import get_toppar_dir
-from transformato.charmm_factory import CharmmFactory
+from constph.gromos_factory import GromosFactory
 from typing import List
 
 logger = logging.getLogger(__name__)
@@ -32,7 +31,7 @@ class StateFactory(object):
         self._init_base_dir()
         self.configuration = configuration
         self.vdw_switch: str
-        self.charmm_factory = CharmmFactory(configuration, self.system.structure)
+        self.charmm_factory = GromosFactory(configuration, self.system.structure)
     
     def _get_simulations_parameters(self):
         prms = {}
