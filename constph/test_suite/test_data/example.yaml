@@ -4,16 +4,32 @@ system:
 ################
   structure:
     name:
-      'test_system'
-    MD:
-      'test_md_path'
-    bb:
-      'test_building_block_path'
-
+      '2OJ9-test1'
+    topo:
+      '../../topo/propionic_acid_54a8_pH.top'
+    coord:
+      '../../md_propionic_acid/md_propionic_acid_20.cnf'
+    pttopo:
+      '../../topo/pert_eds.ptp'
+################
+Config:
+################
+  paths:
+    gromos_bin:
+      '/pool/ogracia/GROMOS/gromosXX_2021/gromosXX/BUILD_CUDA/bin/md'
+    work_dir:
+      '/pool/bbraun/propionic_acid/aeds_propionic_acid/prod_run_23'
+  Specs:
+    lib_template:
+      'mk_script_cuda_8_slurm.lib'
+    program_version:
+      'md++'
+    joblist:
+      'aeds.job'
 ################
 search_run:
 ################
-  parameters:
+  search_parameters:
     nstep:
       5000
     nstdcd:
@@ -27,7 +43,7 @@ search_run:
 ################
 production_run:
 ################
-  parameters:
+  production_parameters:
     nstep:
       5000
     nstdcd:

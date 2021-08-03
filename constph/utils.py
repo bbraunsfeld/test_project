@@ -9,11 +9,6 @@ def get_bin_dir():
     """Returns the bin directory of this package"""
     return os.path.abspath(os.path.join(os.path.dirname(__file__), 'bin'))
 
-
-def get_toppar_dir():
-    """Returns the toppar directory of this package"""
-    return os.path.abspath(os.path.join(os.path.dirname(__file__), 'toppar'))
-
 def load_config_yaml(config, input_dir, output_dir):
 
     with open(f"{config}", 'r') as stream:
@@ -29,8 +24,6 @@ def load_config_yaml(config, input_dir, output_dir):
     settingsMap['data_dir_base'] = os.path.abspath(f"{input_dir}")
     system_name = f"{settingsMap['system']['structure']['name']}"
     settingsMap['system_dir'] = f"{settingsMap['analysis_dir_base']}/{system_name}"
-    settingsMap['cluster_dir'] = f"/data/local/{system_name}"
-
     settingsMap['system']['name'] = system_name
 
     return settingsMap

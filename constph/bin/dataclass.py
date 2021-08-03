@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 #dataclass
 @dataclass
-class parameters:
+class production_parameters:
     nstep: int
     nstdcd: int
     nstout: int
@@ -10,9 +10,9 @@ class parameters:
     dt: float
 @dataclass
 class production_run:
-    parameters: parameters
+    production_parameters: production_parameters
 @dataclass
-class parameters:
+class search_parameters:
     nstep: int
     nstdcd: int
     nstout: int
@@ -20,12 +20,26 @@ class parameters:
     dt: float
 @dataclass
 class search_run:
-    parameters: parameters
+    search_parameters: search_parameters
+@dataclass
+class Specs:
+    lib_template: str
+    program_version: str
+    joblist: str
+@dataclass
+class paths:
+    gromos_bin: str
+    work_dir: str
+@dataclass
+class Config:
+    paths: paths
+    Specs: Specs
 @dataclass
 class structure:
     name: str
-    MD: str
-    bb: str
+    topo: str
+    coord: str
+    pttopo: str
 @dataclass
 class system:
     structure: structure
@@ -33,6 +47,7 @@ class system:
 @dataclass
 class input_dataclass:
     system: system
+    Config: Config
     search_run: search_run
     production_run: production_run
     bin_dir: str

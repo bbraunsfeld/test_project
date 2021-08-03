@@ -1,5 +1,5 @@
-from utils import load_config_yaml
-from utils import create_dataclass_file
+from constph import load_config_yaml
+from constph import create_dataclass_file
 
    
 configuration = load_config_yaml(config='constph/bin/dataclass_structure.yaml',

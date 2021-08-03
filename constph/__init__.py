@@ -3,7 +3,7 @@ Workflow to set up a constant pH calculations of ligands with GROMOS
 """
 
 #imports
-from .utils import load_config_yaml
+from .utils import load_config_yaml, create_dataclass_file
 
 # Handle versioneer
 from ._version import get_versions
