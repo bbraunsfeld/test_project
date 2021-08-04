@@ -12,14 +12,14 @@ system:
     pttopo:
       '../../topo/pert_eds.ptp'
 ################
-Config:
+config:
 ################
   paths:
     gromos_bin:
       '/pool/ogracia/GROMOS/gromosXX_2021/gromosXX/BUILD_CUDA/bin/md'
     work_dir:
       '/pool/bbraun/propionic_acid/aeds_propionic_acid/prod_run_23'
-  Specs:
+  specs:
     lib_template:
       'mk_script_cuda_8_slurm.lib'
     program_version:
