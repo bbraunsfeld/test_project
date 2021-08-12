@@ -13,16 +13,16 @@ class production_run:
     production_parameters: production_parameters
 @dataclass
 class search_parameters:
-    nstep: int
-    nstdcd: int
-    nstout: int
+    NSTLIM: int
+    NTWX: int
+    NTWE: int
     cons: str
     dt: float
 @dataclass
 class search_run:
     search_parameters: search_parameters
 @dataclass
-class Specs:
+class specs:
     lib_template: str
     program_version: str
     joblist: str
@@ -31,9 +31,9 @@ class paths:
     gromos_bin: str
     work_dir: str
 @dataclass
-class Config:
+class config:
     paths: paths
-    Specs: Specs
+    specs: specs
 @dataclass
 class structure:
     name: str
@@ -47,11 +47,10 @@ class system:
 @dataclass
 class input_dataclass:
     system: system
-    Config: Config
+    config: config
     search_run: search_run
     production_run: production_run
     bin_dir: str
     analysis_dir_base: str
     data_dir_base: str
     system_dir: str
-    cluster_dir: str

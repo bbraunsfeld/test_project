@@ -71,7 +71,7 @@ class SystemStructure(object):
                 "only binding and solvation free energy implemented."
             )
 
-    def _read_parameters(self, env: str) -> pm.charmm.CharmmParameterSet:
+    def _read_parameters(self, env: str) 
         """
         Reads in topparameters from a toppar dir and ligand specific parameters.
         Parameters
@@ -91,7 +91,7 @@ class SystemStructure(object):
         charmm_gui_env = self.charmm_gui_base + env
         tlc = self.tlc
         tlc_lower = str(tlc).lower()
-        toppar_dir = get_toppar_dir()
+
 
         # if custom parameter are added they are located in l1,l2
         parameter_files = tuple()
@@ -126,10 +126,10 @@ class SystemStructure(object):
         parameter_files += (f"{toppar_dir}/toppar_water_ions.str",)
 
         # set up parameter objec
-        parameter = pm.charmm.CharmmParameterSet(*parameter_files)
+        parameter = "ah"#pm.charmm.CharmmParameterSet(*parameter_files)
         return parameter
 
-    def _initialize_system(self, configuration: dict, env: str) -> pm.charmm.CharmmPsfFile:
+    def _initialize_system(self, configuration: dict, env: str) 
         """
         Generates the psf file and sets the coordinates from the CHARMM-GUI files.
         Parameters
